@@ -19,6 +19,7 @@ RUN set -ex ; \
         dovecot-ldap \
         maildrop \
         python3 \
+        ssl-cert \
     ; \
     apt-get clean ; \
     rm -rf /var/lib/apt/lists/* ; \
@@ -27,6 +28,10 @@ RUN set -ex ; \
 ADD entrypoint.sh /usr/local/bin/entrypoint.sh
 
 VOLUME /docker-init.d
+ADD autoconf.sh /docker-init.d/autoconf
+ADD docker.conf /etc/dovecot/conf.d/99-docker.conf
+ADD unsecure.conf /etc/dovecot/conf.d/99-unsecure.conf
+
 EXPOSE 143
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 CMD ["/usr/sbin/dovecot", "-F"]
