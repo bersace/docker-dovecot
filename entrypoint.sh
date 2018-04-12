@@ -2,4 +2,4 @@
 
 run-parts --verbose --exit-on-error /docker-init.d/
 
-exec /tini -- $@
+exec /tini -- "$@"
