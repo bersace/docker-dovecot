@@ -29,8 +29,9 @@ ADD entrypoint.sh /usr/local/bin/entrypoint.sh
 
 VOLUME /docker-init.d
 ADD autoconf.sh /docker-init.d/autoconf
+ADD unsecure.conf /etc/dovecot/conf.d/00-unsecure.conf
 ADD docker.conf /etc/dovecot/conf.d/99-docker.conf
-ADD unsecure.conf /etc/dovecot/conf.d/99-unsecure.conf
+ADD snakeoil.conf /etc/dovecot/conf.d/99-unsecure.conf
 
 EXPOSE 143
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

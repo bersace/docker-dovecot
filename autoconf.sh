@@ -4,5 +4,5 @@
 if [ -n "${UNSECURE-}" ] ; then
     openssl dhparam 512 > /etc/ssl/private/snakeoil-dh.pem
 else
-    rm -f /etc/dovecot/conf.d/99-unsecure.conf
+    rm -f /etc/dovecot/conf.d/00-unsecure.conf /etc/dovecot/conf.d/99-snakeoil.conf
 fi
