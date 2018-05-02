@@ -1,4 +1,4 @@
-NAME="bersace/dovecot-imapd"
+NAME="bersace/dovecot"
 
 build:
 	docker build --tag $(NAME) .
